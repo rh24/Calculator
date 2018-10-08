@@ -8,8 +8,11 @@ namespace Calculator
 
         static void Main(string[] args)
         {
+            // ask user for 2 num operation using +, *, -, /.
+            string userInput = AskForUserInput();
+
             // check if there are more than two operands and one operation
-            string[] integers = args[0].Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
+            string[] integers = userInput.Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
             int[] parsedNums = new int[2];
 
             // expression array must have only 2 indeces and both must be ints.
@@ -21,25 +24,34 @@ namespace Calculator
                     int.TryParse(integers[i], out parsed);
                     parsedNums[i] = parsed;
                 }
+            } else
+            {
+                AskForUserInput();
             }
 
            // use contains to pass along the ints to the operations
             int x = parsedNums[0];
             int y = parsedNums[1];
 
-            if (args[0].Contains("+"))
+            if (userInput.Contains("+"))
             {
                 Add(x, y);
-            } else if (args[0].Contains("*"))
+            } else if (userInput.Contains("*"))
             {
                 Multiply(x, y);
-            } else if (args[0].Contains("/"))
+            } else if (userInput.Contains("/"))
             {
                 Divide(x, y);
-            } else if (args[0].Contains("-"))
+            } else if (userInput.Contains("-"))
             {
                 Subtract(x, y);
             }
+        }
+
+        static string AskForUserInput()
+        {
+            Console.WriteLine("Welcome to my calculator! Try a 2 number operation using +, -, /, *");
+            return Console.ReadLine();
         }
 
         static int Add(int x, int y)
