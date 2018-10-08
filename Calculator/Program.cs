@@ -87,6 +87,10 @@ namespace Calculator
             } catch (System.DivideByZeroException ex)
             {
                 Console.WriteLine($"Cannot divide by {0}", ex);
+            } finally
+            {
+                Console.WriteLine("We get here");
+                Console.ReadLine();
             }
 
             return x / y;
