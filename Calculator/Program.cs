@@ -4,7 +4,7 @@ namespace Calculator
 {
     class Program
     {
-        // public string[] Expression = new string[3];
+        // private readonly int[] integers = new int[3];
 
         static void Main(string[] args)
         {
@@ -15,17 +15,17 @@ namespace Calculator
             {
                 for (int i = 0; i < integers.Length; i++)
                 {
-                    try
-                    {
-                        int parsed = int.Parse(integers[i]);
-                        // try handling error in try block instead of using catch
-                    } catch
-                    {
-
-                    }
+                    int parsed;
+                    int.TryParse(integers[i], out parsed);
+                    int[] parsedNums = new int[2];
+                    parsedNums[i] = parsed;
                 }
            // use contains to pass along the ints to the operations
-
+            if (args[0].Contains("+"))
+            {
+                    int x = integers[0];
+                Add(integers[0], integers[1])
+            }
         }
 
         static int Add(int x, int y)
