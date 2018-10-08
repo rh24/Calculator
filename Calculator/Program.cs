@@ -4,10 +4,28 @@ namespace Calculator
 {
     class Program
     {
+        // public string[] Expression = new string[3];
+
         static void Main(string[] args)
         {
             // check if there are more than two operands and one operation
-            args[0].Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
+            string[] integers = args[0].Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
+            // expression array must have only 2 indeces and both must be ints.
+            if (integers.Length == 2)
+            {
+                for (int i = 0; i < integers.Length; i++)
+                {
+                    try
+                    {
+                        int parsed = int.Parse(integers[i]);
+                        // try handling error in try block instead of using catch
+                    } catch
+                    {
+
+                    }
+                }
+           // use contains to pass along the ints to the operations
+
         }
 
         static int Add(int x, int y)
