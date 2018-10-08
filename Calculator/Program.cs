@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Exception;
 
 namespace Calculator
 {
@@ -36,9 +35,9 @@ namespace Calculator
                 Console.WriteLine(x / y);
                 if (y == 0)
                 {
-                    throw new DivideByZeroException();
+                    throw new System.DivideByZeroException();
                 }
-            } catch (DivideByZeroException ex)
+            } catch (System.DivideByZeroException ex)
             {
                 Console.WriteLine($"Cannot divide by {0}", ex);
             }
