@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Calculator
 {
@@ -12,7 +13,7 @@ namespace Calculator
             string userInput = AskForUserInput();
 
             // check if there are more than two operands and one operation
-            string[] integers = userInput.Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
+            string[] integers = Regex.Replace(userInput, @"\s", "").Split(new char[] { '+', '*', '-', '/' });
             int[] parsedNums = new int[2];
 
             // expression array must have only 2 indeces and both must be ints.
@@ -46,6 +47,8 @@ namespace Calculator
             {
                 Subtract(x, y);
             }
+
+            Console.ReadLine();
         }
 
         static string AskForUserInput()
