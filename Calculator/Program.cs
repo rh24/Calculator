@@ -10,6 +10,7 @@ namespace Calculator
         {
             // check if there are more than two operands and one operation
             string[] integers = args[0].Replace(" ", "").Split(new char[] { '+', '*', '-', '/' });
+            int[] parsedNums = new int[2];
 
             // expression array must have only 2 indeces and both must be ints.
             if (integers.Length == 2)
@@ -18,7 +19,6 @@ namespace Calculator
                 {
                     int parsed;
                     int.TryParse(integers[i], out parsed);
-                    int[] parsedNums = new int[2];
                     parsedNums[i] = parsed;
                 }
             }
@@ -26,8 +26,9 @@ namespace Calculator
            // use contains to pass along the ints to the operations
             if (args[0].Contains("+"))
             {
-                    int x = integers[0];
-                Add(integers[0], integers[1])
+                int x = parsedNums[0];
+                int y = parsedNums[1];
+                Add(x, y);
             }
         }
 
