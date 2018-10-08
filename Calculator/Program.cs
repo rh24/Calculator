@@ -24,11 +24,21 @@ namespace Calculator
             }
 
            // use contains to pass along the ints to the operations
+            int x = parsedNums[0];
+            int y = parsedNums[1];
+
             if (args[0].Contains("+"))
             {
-                int x = parsedNums[0];
-                int y = parsedNums[1];
                 Add(x, y);
+            } else if (args[0].Contains("*"))
+            {
+                Multiply(x, y);
+            } else if (args[0].Contains("/"))
+            {
+                Divide(x, y);
+            } else if (args[0].Contains("-"))
+            {
+                Subtract(x, y);
             }
         }
 
